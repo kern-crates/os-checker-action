@@ -1,6 +1,8 @@
 name: os-checker tools action
 description: Run a collection of checkers targeting Rust crates, and report bad checking results and statistics.
-
+branding:
+  icon: box
+  color: orange
 runs:
   using: "composite"
   steps:
