@@ -1,0 +1,7 @@
+name: os-checker tools action
+description: Run a collection of checkers targeting Rust crates, and report bad checking results and statistics.
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo fine!
