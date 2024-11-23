@@ -7,3 +7,4 @@ runs:
   using: "composite"
   steps:
     - run: echo fine!
+      shell: bash
