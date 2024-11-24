@@ -11,7 +11,7 @@ jobs:
         run: |
           echo '{"os-checker/os-checker-test-suite":{}}' > repo.json
 
-      - uses: os-checker/os-checker-action@v0.0.12
+      - uses: os-checker/os-checker-action@v0.0.13
         with:
           configs: repo.json
           database_repo: os-checker/test-database
