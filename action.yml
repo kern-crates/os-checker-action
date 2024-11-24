@@ -64,7 +64,7 @@ runs:
         tar -xvJf checkers.tar.xz -C ~/.cargo/bin/
 
         gh release download -R os-checker/database precompiled-checkers -p os-checker.tar.xz
-        tar -xvJf checkers.tar.xz -C ~/.cargo/bin/
+        tar -xvJf os-checker.tar.xz -C ~/.cargo/bin/
         os-checker --help
 
         gh release download -R os-checker/docs -p os-checker-plugin-docs-installer.sh
