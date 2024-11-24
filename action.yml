@@ -25,6 +25,9 @@ inputs:
     required: true
     default: bot@users.noreply.github.com
 
+  configs:
+    description: A list of os-checker configuration file paths, separated by single space.
+    required: true
   rust_log:
     description: RUST_LOG for tools to control the verbosity of logging.
     default: info
@@ -50,6 +53,10 @@ runs:
   steps:
         
     - run: |
+        export DIR=/tmp/check
+        mkdir $DIR
+        cd $DIR
+
         gh release download -R os-checker/database precompiled-checkers -p checkers.tar.xz
         tar -xvJf checkers.tar.xz -C ~/.cargo/bin/
 
@@ -79,4 +86,45 @@ runs:
         RAP_TOOLCHAIN: ${{ inputs.rap_toolchain }}
         RUDRA_TOOLCHAIN: ${{ inputs.rudra_toolchain }}
         OS_CHECKER_RUST_TOOLCHAIN: ${{ inputs.rust_toolchain }}
+
+    - run: |
+        export DIR=/tmp/check
+
+        # split each json file and copy them to $DIR
+        echo "$OS_CHECKER_CONFIGS" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{for(i=1;i<=NF;i++) system("cp " $i " $DIR" )}'
+        cd $DIR
+
+        # Run checker
+        os-checker db --start cache.redb
+        os-checker run --emit batch/single.json --db cache.redb
+        os-checker db --done cache.redb
+
+        # Generate JSON results
+        os-checker-database
+
+        # Generate api info
+        os-checker-plugin-github-api
+
+        # Generate cargo info
+        os-checker-plugin-cargo
+
+        # Generate rustdocs
+        os-checker-plugin-docs
+
+        # Generate WebUI
+        cd os-checker.github.io/os-checks
+        npm install 2>/dev/null && npm run generate 2>/dev/null 1>/dev/null && cp -LR dist $DIR
+
+        tree -h -L 4
+
+        # Push to database_repo
+        $GITHUB_ACTION_PATH/push.sh
+      shell: bash
+      env:
+        OS_CHECKER_CONFIGS: ${{ inputs.configs }}
+        GIT_AUTHOR: ${{ inputs.git_author }}
+        GIT_EMAIL: ${{ inputs.git_email }}
+        DATABASE_REPO: ${{ inputs.database_repo }}
+        BASE_URL: ${{ inputs.base_url }}
+        DOCS_URL: ${{ inputs.docs_url }}
 
