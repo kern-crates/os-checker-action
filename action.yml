@@ -50,7 +50,7 @@ runs:
   steps:
 
     - name: Install checkers and toolchains
-      run: install.sh
+      run: $GITHUB_ACTION_PATH/install.sh
       shell: bash
       env:
         LOCKBUD_TOOLCHAIN: ${{ inputs.lockbud_toolchain }}
