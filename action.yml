@@ -95,6 +95,12 @@ runs:
         echo "$OS_CHECKER_CONFIGS" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | awk '{for(i=1;i<=NF;i++) system("cp " $i " $DIR" )}'
         cd $DIR
 
+        # Generate WebUI
+        gh repo clone os-checker/os-checker.github.io
+        cd os-checker.github.io/os-checks
+        npm install 2>/dev/null && npm run generate 2>/dev/null 1>/dev/null && cp -LR dist $DIR
+        cd $DIR
+
         # Run checker
         os-checker db --start cache.redb
         os-checker run --emit batch/single.json --db cache.redb
@@ -111,11 +117,6 @@ runs:
 
         # Generate rustdocs
         os-checker-plugin-docs
-
-        # Generate WebUI
-        gh repo clone os-checker/os-checker.github.io
-        cd os-checker.github.io/os-checks
-        npm install 2>/dev/null && npm run generate 2>/dev/null 1>/dev/null && cp -LR dist $DIR
 
         # Push to database_repo
         $GITHUB_ACTION_PATH/push.sh
