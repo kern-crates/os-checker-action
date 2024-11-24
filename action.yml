@@ -24,6 +24,9 @@ inputs:
     description: Email of author and committer used in pushing artifacts to database repo.
     required: true
     default: bot@users.noreply.github.com
+  gh_token:
+    description: Github token with write access to database_repo and read access to config repos.
+    required: true
 
   configs:
     description: A list of os-checker configuration file paths, separated by single space.
@@ -127,5 +130,5 @@ runs:
         DATABASE_REPO: ${{ inputs.database_repo }}
         BASE_URL: ${{ inputs.base_url }}
         DOCS_URL: ${{ inputs.docs_url }}
-        GH_TOKEN: ${{ github.token }}
+        GH_TOKEN: ${{ inputs.gh_token }}
 

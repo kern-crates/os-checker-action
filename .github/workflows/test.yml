@@ -11,11 +11,12 @@ jobs:
         run: |
           echo '{"os-checker/os-checker-test-suite":{}}' > repo.json
 
-      - uses: os-checker/os-checker-action@v0.0.14
+      - uses: os-checker/os-checker-action@v0.0.15
         with:
           configs: repo.json
           database_repo: os-checker/test-database
           base_url: /os-checker-action/
           docs_url: https://os-checker.github.io/os-checker-action/docs
+          gh_token: ${{ secrets.GH_TOKEN }}
 
       - run: df -alh && tree -h -L 4 /tmp/check
