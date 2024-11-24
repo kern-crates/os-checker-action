@@ -3,8 +3,72 @@ description: Run a collection of checkers targeting Rust crates, and report bad 
 branding:
   icon: box
   color: orange
+
+# OS_CHECKER_RUST_TOOLCHAIN=nightly-2024-11-21
+# INSTALL=/os_checker/install
+# RUST_LOG=info
+# DATABASE_REPO=os-checker/test-database
+# GIT_AUTHOR=zjp-CN[bot]
+# GIT_EMAIL=zjp-CN[bot]@users.noreply.github.com
+#
+# # Web UI related
+# BASE_URL=/dockerfiles/
+# # This is read by both by plugin-docs and WebUI
+# DOCS_URL=https://os-checker.github.io/dockerfiles/docs
+inputs:
+  database_repo:
+    description: A gihub repo in the form of `user/repo`.
+    required: true
+  base_url:
+    description: A base url used in WebUI artifacts.
+    required: true
+    default: ""
+  docs_url:
+    description: Rustdocs deployment site.
+    required: true
+
+  git_author:
+    description: Author and committer used in pushing artifacts to database repo.
+    required: true
+    default: bot
+  git_email:
+    description: Email of author and committer used in pushing artifacts to database repo.
+    required: true
+    default: bot@users.noreply.github.com
+
+  rust_toolchain:
+    description: Default Rust toolchain.
+    default: nightly
+  rust_log:
+    description: RUST_LOG for tools to control the verbosity of logging.
+    default: info
+
+  lockbud_toolchain:
+    description: Rust toolchain for Lockbud.
+    default: nightly-2024-10-05
+  mirai_toolchain:
+    description: Rust toolchain for Mirai.
+    default: nightly-2024-02-05
+  rap_toolchain:
+    description: Rust toolchain for Rap.
+    default: nightly-2024-10-12
+  rudra_toolchain:
+    description: Rust toolchain for Rudra.
+    default: nightly-2021-10-21
+
 runs:
   using: "composite"
   steps:
     - run: echo fine!
       shell: bash
+
+    - name: Install checkers and toolchains
+      run: ./action.sh
+      shell: bash
+      env:
+        LOCKBUD_TOOLCHAIN: ${{ inputs.lockbud_toolchain }}
+        MIRAI_TOOLCHAIN: ${{ inputs.mirai_toolchain }}
+        RAP_TOOLCHAIN: ${{ inputs.rap_toolchain }}
+        RUDRA_TOOLCHAIN: ${{ inputs.rudra_toolchain }}
+        OS_CHECKER_RUST_TOOLCHAIN: ${{ inputs.rust_toolchain }}
+        
