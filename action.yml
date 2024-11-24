@@ -72,8 +72,6 @@ runs:
         gh release download -R os-checker/plugin-github-api -p os-checker-plugin-github-api-installer.sh
         sh os-checker-plugin-github-api-installer.sh
 
-        gh repo clone os-checker/os-checker.github.io
-
       shell: bash
       env:
         GH_TOKEN: ${{ github.token }}
@@ -112,6 +110,7 @@ runs:
         os-checker-plugin-docs
 
         # Generate WebUI
+        gh repo clone os-checker/os-checker.github.io
         cd os-checker.github.io/os-checks
         npm install 2>/dev/null && npm run generate 2>/dev/null 1>/dev/null && cp -LR dist $DIR
 
@@ -127,4 +126,5 @@ runs:
         DATABASE_REPO: ${{ inputs.database_repo }}
         BASE_URL: ${{ inputs.base_url }}
         DOCS_URL: ${{ inputs.docs_url }}
+        GH_TOKEN: ${{ github.token }}
 
