@@ -23,7 +23,7 @@ inputs:
   git_email:
     description: Email of author and committer used in pushing artifacts to database repo.
     required: true
-    default: bot@users.noreply.github.com
+    default: os-checker[bot]@users.noreply.github.com
   gh_token:
     description: Github token with write access to database_repo and read access to config repos.
     required: true
