@@ -118,10 +118,13 @@ runs:
         cd os-checker.github.io/os-checks
         npm install 2>/dev/null && npm run generate 2>/dev/null 1>/dev/null && cp -LR dist $DIR
 
-        tree -h -L 4
-
         # Push to database_repo
         $GITHUB_ACTION_PATH/push.sh
+
+        rm os-checker -r
+        rm os-checker.github.io -r
+        rm *.sh
+
       shell: bash
       env:
         OS_CHECKER_CONFIGS: ${{ inputs.configs }}
