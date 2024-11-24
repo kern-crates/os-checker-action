@@ -63,11 +63,14 @@ runs:
       shell: bash
       env:
         GH_TOKEN: ${{ github.token }}
-      run: 
-        gh release download --clobber -R os-checker/database precompiled-checkers -p os-checker
+      run: |
+        gh release download -R os-checker/database precompiled-checkers -p os-checker
         chmod +x os-checker
         mv os-checker ~/.cargo/bin
         gh release download -R os-checker/docs -p os-checker-plugin-docs-installer.sh
+        sh os-checker-plugin-docs-installer.sh
         gh release download -R os-checker/plugin-cargo -p os-checker-plugin-cargo-installer.sh
+        sh os-checker-plugin-cargo-installer.sh
         gh release download -R os-checker/plugin-github-api -p os-checker-plugin-github-api-installer.sh
+        sh os-checker-plugin-github-api-installer.sh
 
