@@ -49,11 +49,7 @@ runs:
   using: "composite"
   steps:
         
-    - name: Install os-checker tools
-      shell: bash
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
+    - run: |
         gh release download -R os-checker/database precompiled-checkers -p checkers.tar.xz
         tar -xvJf checkers.tar.xz -C ~/.cargo/bin/
 
@@ -71,8 +67,11 @@ runs:
 
         gh repo clone os-checker/os-checker.github.io
 
-    - name: Install toolchains
-      run: $GITHUB_ACTION_PATH/install.sh
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    - run: $GITHUB_ACTION_PATH/install.sh
       shell: bash
       env:
         LOCKBUD_TOOLCHAIN: ${{ inputs.lockbud_toolchain }}
