@@ -48,6 +48,24 @@ inputs:
 runs:
   using: "composite"
   steps:
+        
+    - name: Install os-checker tools
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        gh release download -R os-checker/database precompiled-checkers -p checkers.tar.xz
+        gh release download -R os-checker/database precompiled-checkers -p os-checker
+        chmod +x os-checker
+        os-checker --help
+        mv os-checker ~/.cargo/bin
+        gh release download -R os-checker/docs -p os-checker-plugin-docs-installer.sh
+        sh os-checker-plugin-docs-installer.sh
+        gh release download -R os-checker/plugin-cargo -p os-checker-plugin-cargo-installer.sh
+        sh os-checker-plugin-cargo-installer.sh
+        gh release download -R os-checker/plugin-github-api -p os-checker-plugin-github-api-installer.sh
+        sh os-checker-plugin-github-api-installer.sh
+        gh repo clone os-checker/os-checker.github.io
 
     - name: Install checkers and toolchains
       run: $GITHUB_ACTION_PATH/install.sh
@@ -58,19 +76,4 @@ runs:
         RAP_TOOLCHAIN: ${{ inputs.rap_toolchain }}
         RUDRA_TOOLCHAIN: ${{ inputs.rudra_toolchain }}
         OS_CHECKER_RUST_TOOLCHAIN: ${{ inputs.rust_toolchain }}
-        
-    - name: Install os-checker tools
-      shell: bash
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        gh release download -R os-checker/database precompiled-checkers -p os-checker
-        chmod +x os-checker
-        mv os-checker ~/.cargo/bin
-        gh release download -R os-checker/docs -p os-checker-plugin-docs-installer.sh
-        sh os-checker-plugin-docs-installer.sh
-        gh release download -R os-checker/plugin-cargo -p os-checker-plugin-cargo-installer.sh
-        sh os-checker-plugin-cargo-installer.sh
-        gh release download -R os-checker/plugin-github-api -p os-checker-plugin-github-api-installer.sh
-        sh os-checker-plugin-github-api-installer.sh
 

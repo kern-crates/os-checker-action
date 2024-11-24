@@ -5,7 +5,6 @@ rustup toolchain install $RAP_TOOLCHAIN
 rustup toolchain install $RUDRA_TOOLCHAIN
 
 echo "Install checkers."
-wget https://github.com/os-checker/database/releases/download/precompiled-checkers/checkers.tar.xz
 tar -xvJf checkers.tar.xz -C ~/.cargo/bin/
 
 echo "Ensure checkers work."
