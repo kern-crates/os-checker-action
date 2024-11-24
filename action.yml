@@ -19,7 +19,7 @@ inputs:
   git_author:
     description: Author and committer used in pushing artifacts to database repo.
     required: true
-    default: bot
+    default: os-checker[bot]
   git_email:
     description: Email of author and committer used in pushing artifacts to database repo.
     required: true
