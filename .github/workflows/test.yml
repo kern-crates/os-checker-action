@@ -6,6 +6,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: os-checker/os-checker-action@v0.0.11
 
-      - run: echo done!
+      - name: Prepare config JSONs
+        run: |
+          echo '{"os-checker/os-checker-test-suite":{}}' > repo.json
+
+      - uses: os-checker/os-checker-action@v0.0.12
+        with:
+          config: repo.json
+          database_repo: os-checker/test-database
+          base_url: /os-checker-action/
+          docs_url: https://os-checker.github.io/os-checker-action/docs
+
