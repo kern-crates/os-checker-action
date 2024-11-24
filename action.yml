@@ -60,6 +60,9 @@ runs:
         OS_CHECKER_RUST_TOOLCHAIN: ${{ inputs.rust_toolchain }}
         
     - name: Install os-checker tools
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
       run: 
         gh release download --clobber -R os-checker/database precompiled-checkers -p os-checker
         chmod +x os-checker
