@@ -6,6 +6,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: os-checker/os-checker-action@v0.0.8
+      - uses: os-checker/os-checker-action@v0.0.9
 
       - run: echo done!
