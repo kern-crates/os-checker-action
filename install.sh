@@ -8,6 +8,6 @@ rustup default $RAP_TOOLCHAIN && cargo rap --help
 rustup default $RUDRA_TOOLCHAIN && cargo rudra --help
 
 rustup default $OS_CHECKER_RUST_TOOLCHAIN
-rustup component add clippy,rustfmt
+rustup component add clippy rustfmt
 
 echo "All done!"
