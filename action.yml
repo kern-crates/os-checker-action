@@ -57,8 +57,8 @@ runs:
         gh release download -R os-checker/database precompiled-checkers -p checkers.tar.xz
         gh release download -R os-checker/database precompiled-checkers -p os-checker
         chmod +x os-checker
-        os-checker --help
         mv os-checker ~/.cargo/bin
+        os-checker --help
         gh release download -R os-checker/docs -p os-checker-plugin-docs-installer.sh
         sh os-checker-plugin-docs-installer.sh
         gh release download -R os-checker/plugin-cargo -p os-checker-plugin-cargo-installer.sh
