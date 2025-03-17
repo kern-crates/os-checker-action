@@ -40,10 +40,10 @@ inputs:
     default: nightly
   lockbud_toolchain:
     description: Rust toolchain for Lockbud.
-    default: nightly-2024-10-05
+    default: nightly-2025-02-01
   mirai_toolchain:
     description: Rust toolchain for Mirai.
-    default: nightly-2024-02-05
+    default: nightly-2025-01-10
   rap_toolchain:
     description: Rust toolchain for Rap.
     default: nightly-2024-10-12
