@@ -64,7 +64,7 @@ runs:
         tar -xvJf checkers.tar.xz -C ~/.cargo/bin/
 
         gh release download -R os-checker/database precompiled-checkers -p os-checker.tar.xz
-        tar -xvJf os-checker.tar.xz -C ~/.cargo/bin/
+        # tar -xvJf os-checker.tar.xz -C ~/.cargo/bin/
         cargo install --git https://github.com/os-checker/os-checker.git --branch no-layout-error os-checker os-checker-database #2>/dev/null
         os-checker --help
 
