@@ -9,7 +9,7 @@ jobs:
 
       - name: Prepare config JSONs
         run: |
-          echo '{"anza-xyz/agave":{}}' > repo.json
+          echo '{"solana-foundation/anchor":{}}' > repo.json
 
       - uses: os-checker/os-checker-action@HEAD
         with:
