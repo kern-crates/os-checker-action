@@ -9,7 +9,7 @@ jobs:
 
       - name: Prepare config JSONs
         run: |
-          echo '{"os-checker/os-checker-test-suite":{}}' > repo.json
+          echo '{"anza-xyz/agave":{}}' > repo.json
 
       - uses: os-checker/os-checker-action@HEAD
         with:
