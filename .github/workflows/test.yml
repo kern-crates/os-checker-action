@@ -9,7 +9,8 @@ jobs:
 
       - name: Prepare config JSONs
         run: |
-          echo '{"The-Swarm-Corporation/swarms-rs":{}}' > repo.json
+          # echo '{"solana-foundation/anchor":{}}' > repo.json
+          wget https://github.com/os-checker/os-checker-action/raw/refs/heads/main/test.json -O repo.json
 
       - uses: os-checker/os-checker-action@HEAD
         with:
