@@ -7,7 +7,6 @@
       ]
     }
   },
-  "FuelLabs/fuel-core": {},
   "FuelLabs/sway": {},
   "FuelLabs/fuels-rs": {},
   "linera-io/linera-protocol": {},
