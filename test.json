@@ -6,5 +6,18 @@
         "**/tests/**"
       ]
     }
-  }
+  },
+  "FuelLabs/fuel-core": {},
+  "FuelLabs/sway": {},
+  "FuelLabs/fuels-rs": {},
+  "linera-io/linera-protocol": {},
+  "opentensor/subtensor": {},
+  "Conflux-Chain/conflux-rust": {},
+  "informalsystems/hermes": {},
+  "informalsystems/malachite": {},
+  "stacks-network/stacks-core": {},
+  "Phala-Network/phala-blockchain": {},
+  "paritytech/polkadot-sdk": {},
+  "massalabs/massa": {},
+  "xelis-project/xelis-blockchain": {}
 }
