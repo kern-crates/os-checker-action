@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   run:
-    runs-on: [ubuntu-latest, chainfox]
+    runs-on: [ubuntu-latest, self-hosted]
     steps:
 
       - name: Prepare config JSONs
