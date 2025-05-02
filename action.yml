@@ -106,7 +106,7 @@ runs:
 
         # Run checker
         os-checker db --start cache.redb
-        os-checker run --emit batch/single.json --db cache.redb
+        os-checker run --emit batch/single.json --db cache.redb --no-layout-error
         os-checker db --done cache.redb
 
         # Upload cache.redb
