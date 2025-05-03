@@ -1,13 +1,5 @@
 {
-  "informalsystems/hermes": {
-    "targets": "x86_64-unknown-linux-gnu",
-    "cmds": { "geiger": false, "outdated": false, "semver-checks": false, "mirai": false },
-    "meta": {
-      "only_pkg_dir_globs": [ "crates", "crates/**" ],
-      "skip_pkg_dir_globs": [ "*test*", "*bench*", "*exampl*", "*template*", "*doc*" ]
-    }
-  },
-  "Phala-Network/phala-blockchain": {
+  "os-checker/plugin": {
     "targets": "x86_64-unknown-linux-gnu",
     "cmds": { "geiger": false, "outdated": false, "semver-checks": false, "mirai": false },
     "meta": {
