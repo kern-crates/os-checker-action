@@ -69,7 +69,6 @@ runs:
         cd os-checker &&  git switch update-audit-rustsec
         export CARGO_TARGET_DIR=$PWD/target
         cargo install --path . 
-        cargo install --path . --example batch
         cargo install --path os-checker-database
         os-checker --help
         cd .. && rm os-checker -r
@@ -112,8 +111,8 @@ runs:
 
         # Run checker
         os-checker db --start cache.redb
-        # os-checker run --emit batch/single.json --db cache.redb --no-layout-error
-        batch --size 1
+        os-checker run --emit batch/single.json --db cache.redb --no-layout-error
+        # batch --size 1
         os-checker db --done cache.redb
 
         # Upload cache.redb
