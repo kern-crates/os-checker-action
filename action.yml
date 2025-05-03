@@ -111,7 +111,7 @@ runs:
 
         # Run checker
         os-checker db --start cache.redb
-        os-checker run --emit batch/single.json --db cache.redb --no-layout-error
+        FORCE_REPO_CHECK=false FORCE_RUN_CHECK=false os-checker run --emit batch/single.json --db cache.redb --no-layout-error
         # batch --size 1
         os-checker db --done cache.redb
 
