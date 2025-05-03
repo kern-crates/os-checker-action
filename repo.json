@@ -1,0 +1,50 @@
+{
+  "FuelLabs/sway": {
+    "targets": "x86_64-unknown-linux-gnu",
+    "cmds": { "geiger": false, "outdated": false, "semver-checks": false, "mirai": false },
+    "meta": {
+      "only_pkg_dir_globs": [ "sway*", "sway*/**" ],
+      "skip_pkg_dir_globs": [ "*test*", "*bench*", "*exampl*", "*template*", "*doc*" ]
+    }
+  },
+  "FuelLabs/fuel-core": {
+    "targets": "x86_64-unknown-linux-gnu",
+    "cmds": { "geiger": false, "outdated": false, "semver-checks": false, "mirai": false },
+    "meta": {
+      "only_pkg_dir_globs": [ "crates", "crates/**" ],
+      "skip_pkg_dir_globs": [ "*test*", "*bench*", "*exampl*", "*template*", "*doc*" ]
+    }
+  },
+  "FuelLabs/fuels-rs": {
+    "targets": "x86_64-unknown-linux-gnu",
+    "cmds": { "geiger": false, "outdated": false, "semver-checks": false, "mirai": false },
+    "meta": {
+      "only_pkg_dir_globs": [ "packages", "packages/**" ],
+      "skip_pkg_dir_globs": [ "*test*", "*bench*", "*exampl*", "*template*", "*doc*" ]
+    }
+  },
+  "Conflux-Chain/conflux-rust": {
+    "targets": "x86_64-unknown-linux-gnu",
+    "cmds": { "geiger": false, "outdated": false, "semver-checks": false, "mirai": false },
+    "meta": {
+      "only_pkg_dir_globs": [ "crates", "crates/**" ],
+      "skip_pkg_dir_globs": [ "*test*", "*bench*", "*exampl*", "*template*", "*doc*" ]
+    }
+  },
+  "informalsystems/hermes": {
+    "targets": "x86_64-unknown-linux-gnu",
+    "cmds": { "geiger": false, "outdated": false, "semver-checks": false, "mirai": false },
+    "meta": {
+      "only_pkg_dir_globs": [ "crates", "crates/**" ],
+      "skip_pkg_dir_globs": [ "*test*", "*bench*", "*exampl*", "*template*", "*doc*" ]
+    }
+  },
+  "Phala-Network/phala-blockchain": {
+    "targets": "x86_64-unknown-linux-gnu",
+    "cmds": { "geiger": false, "outdated": false, "semver-checks": false },
+    "meta": {
+      "only_pkg_dir_globs": [ "crates", "crates/**" ],
+      "skip_pkg_dir_globs": [ "*test*", "*bench*", "*exampl*", "*template*", "*doc*" ]
+    }
+  }
+}
