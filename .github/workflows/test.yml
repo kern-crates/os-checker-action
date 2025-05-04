@@ -19,6 +19,8 @@ jobs:
           base_url: /os-checker-action/
           docs_url: https://os-checker.github.io/os-checker-action/docs
           gh_token: ${{ secrets.GH_TOKEN }}
+          rust_log: debug
+
 
       - run: df -alh && tree -h -L 4 /tmp/check
 
