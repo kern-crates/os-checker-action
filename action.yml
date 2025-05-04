@@ -147,4 +147,5 @@ runs:
         BASE_URL: ${{ inputs.base_url }}
         DOCS_URL: ${{ inputs.docs_url }}
         GH_TOKEN: ${{ inputs.gh_token }}
+        RUST_LOG: ${{ inputs.rust_log }}
 
