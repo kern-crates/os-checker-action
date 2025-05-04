@@ -1,9 +1,12 @@
 {
-  "os-checker/plugin": {
+  "Conflux-Chain/conflux-rust": {
     "targets": "x86_64-unknown-linux-gnu",
-    "cmds": { "geiger": false, "outdated": false, "semver-checks": false, "mirai": false },
+    "cmds": {
+      "geiger": false, "outdated": false, "semver-checks": false, "mirai": false,
+      "fmt": false, "clippy": false, "lockbud": false, "rapx": true, "rudra": false
+    },
     "meta": {
-      "only_pkg_dir_globs": [ "crates", "crates/**" ],
+      "only_pkg_dir_globs": [ "crates", "crates/cfxcore", "crates/cfxcore/vm-interpreter" ],
       "skip_pkg_dir_globs": [ "*test*", "*bench*", "*exampl*", "*template*", "*doc*" ]
     }
   }

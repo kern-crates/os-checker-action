@@ -66,7 +66,7 @@ runs:
         gh release download -R os-checker/database precompiled-checkers -p os-checker.tar.xz
         # tar -xvJf os-checker.tar.xz -C ~/.cargo/bin/
         git clone https://github.com/os-checker/os-checker.git 
-        cd os-checker &&  git switch update-audit-rustsec
+        cd os-checker
         export CARGO_TARGET_DIR=$PWD/target
         cargo install --path . 
         cargo install --path os-checker-database
