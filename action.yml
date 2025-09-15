@@ -60,10 +60,10 @@ runs:
         mkdir $DIR
         cd $DIR
 
-        gh release download -R os-checker/database precompiled-checkers -p checkers.tar.xz
+        gh release download -R os-checker/database cache-os-checker-v0.8.0.redb -p checkers.tar.xz
         tar -xvJf checkers.tar.xz -C ~/.cargo/bin/
 
-        gh release download -R os-checker/database precompiled-checkers -p os-checker.tar.xz
+        gh release download -R os-checker/database cache-os-checker-v0.8.0.redb -p os-checker.tar.xz
         # tar -xvJf os-checker.tar.xz -C ~/.cargo/bin/
         git clone https://github.com/os-checker/os-checker.git 
         cd os-checker
